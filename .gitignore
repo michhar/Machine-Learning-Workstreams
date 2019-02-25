@@ -1,3 +1,9 @@
+# The PyTorch extensions and dependencies
+_ext/
+pycocotools/
+cocoapi/
+*.cu.o
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
