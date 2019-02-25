@@ -1,7 +1,77 @@
 An Azure Machine Learning Pipeline for Computer Vision
 ==============================
 
-Using Azure Machine Learning Service create a computer vision machine learning pipeline with PyTorch.
+Using Azure Machine Learning Service and the Data Science Virtual Machine to create a computer vision machine learning pipeline.  The example here is using PyTorch for an instance segmentation task.
+
+Purpose
+---
+
+The purpose for this repo is to provide a mechanism to set up an environment and workflow for a computer vision task.  The setup includes experimentation features for data exploration and model training as well as a production pipeline phase.
+
+Azure Machine Learning Service is used in the experimentation phase to track and record metrics for training runs, register the models in model management with metadata and potentially sending training jobs to a remote compute if deemed necessary (e.g. a GPU cluster).
+
+What Get Deploys
+---
+
+* Azure Storage Account
+* Azure Machine Learning Workspace
+* Ubuntu Data Science Virtual Machine (NC6)
+
+What Tools are Automatically Set Up on the DSVM
+---
+
+* Tools
+  * VGG Image Annotator
+* PyTorch Extensions for NMS and ROI Alignment
+* Cloned notebooks and scripts from this repository
+
+Steps
+---
+
+### Frame Reduction and Annotation
+
+1.  Reduce frames in video based on content
+2.  Annotate the selected frames by drawing polygons with the VGG Image Annotation (VIA tool) around objects of interest
+
+### Exploratory Data Analysis
+
+This could be an Azure ML pipeline and even generate a report.
+
+1.  View class distribution - notebook
+2.  Prepare training dataset - notebook
+5.  View training dataset - notebook
+
+### Experimentation Phase
+
+This could be an Azure ML pipeline.
+
+1.  Train model and iterate - notebook
+2.  Export a training script for production - script
+
+### Productionization Phase
+
+This will be an Azure ML Pipeline or sequence of automated steps.
+
+1.  Train production model - script
+2.  Deploy model as webservice - script
+3.  Test webservice - script
+
+
+Other Options for Interacting with Notebooks
+---
+
+Papermill for remotely executing notebooks:  https://github.com/nteract/papermill
+
+References
+---
+
+* [Azure Machine Learning Service Docs](https://docs.microsoft.com/en-us/azure/machine-learning/service/)
+* [Data Science Virtual Machine Docs](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/)
+
+Credits
+---
+
+* Inspired by https://github.com/Azure/Machine-Learning-Containers
 
 Project Organization
 ------------
